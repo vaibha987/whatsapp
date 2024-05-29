@@ -4,6 +4,7 @@ const io = require('socket.io')(8000)
 const users = {};
 io.on('connection', socket =>{
     socket.on('new-user-defined',name =>{
+        console.log("newUser", name);
         users[socket.id] = name;
         socket.broadcast.emit('user-joined',name)
     });
