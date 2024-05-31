@@ -10,7 +10,7 @@ const messageContainer = document.querySelector('.container');
 const append = (message, position) => {
     console.log("Rishabh");
     const messageElement = document.createElement('div');
-    messageElement.innerText=message;
+    messageElement.innerText = message;
     messageElement.classList.add('message');
     messageElement.classList.add(position);
     messageContainer.append(messageElement);
