@@ -21,7 +21,7 @@ const append = (message, position) => {
 form.addEventListener('submit',(e)=>{
     e.preventDefault(); //will not reload
     const message = messageInput.value;
-    append(`You: ${message}`,'right');
+    append(`You: ${message}`, 'right');
     socket.emit('send',message);
     messageInput.value='';
 })
