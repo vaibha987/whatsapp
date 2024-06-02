@@ -3,7 +3,7 @@ const socket = io('http://localhost:8000')
 const form = document.getElementById('send-container');
 const messageInput = document.getElementById('messageInp');
 
-const messageContainer = document.querySelector('.container');
+const messageContainer=document.querySelector('.container');
 
 
 
@@ -21,7 +21,7 @@ const append = (message, position) => {
 form.addEventListener('submit',(e)=>{
     e.preventDefault(); //will not reload
     const message = messageInput.value;
-    append(`You: ${message}`,'right');
+    append(`You: ${message}`, 'right');
     socket.emit('send',message);
     messageInput.value='';
 })
