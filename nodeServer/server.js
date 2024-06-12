@@ -4,7 +4,7 @@ const io = require('socket.io')(8000,{
         origin: 'http://127.0.0.1:5500', // Allow requests from this origin
         methods: ['GET', 'POST', 'PUT'], // Allowed methods
         allowedHeaders: ['Content-Type'], // Allowed headers
-        credentials: true
+        credentials : true
     }
 });
 
