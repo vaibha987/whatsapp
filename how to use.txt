@@ -1,0 +1,4 @@
+1 run with go live first 
+2 change directory to nodeServer in terminal
+write command in command line as `nodemon server.js` and press enter 
+go to chrome and chat
