@@ -1,29 +1,28 @@
 //Node server
-const io = require('socket.io')(8000,{
-    cors: {
-        origin : 'http://127.0.0.1:5500', // Allow requests from this origin
-        methods: ['GET', 'POST', 'PUT'], // Allowed methods
-        allowedHeaders: ['Content-Type'], // Allowed headers
-        credentials :true
-    }
-});
+//server
+// const io = require('socket.io')(8000); //make a socket connection on port 8000
 
-const users = {};
-io.on('connection', socket =>{
-    socket.on('new-user-joined',name =>{
-        console.log("New User", name);
-        users[socket.id] = name;
-        socket.broadcast.emit('user-joined',name)
-    });
-
-    socket.on('send',message=>{
-        socket.broadcast.emit('receive',{message: message, name: users[socket.id]})
-    });
-
-
-    socket.on('disconnect',message=>{
-        socket.broadcast.emit('left',users[socket.id]);
-        delete users[socket.id];
-    });
+const io = require('socket.io')(8000);
+//server
+//with .on, we are doing event handling
+//.on(event, callback)
+const users = {};//server
+io.on('connection', socket =>{//server
+    socket.on('new-user-joined', name =>{
+        console.log("New User", name); //IN TERMINAL log
+        users[socket.id] = name; 
+        //key value pair in object users. 
+        socket.broadcast.emit('user-joined',name) //requesting the client to add this user by 
+    });//server
+//server
+    socket.on('abcd',message=>{
+        socket.broadcast.emit('receive',{message: message, name: users[socket.id]}) //server to client
+    });//server
+//server
+//server
+    // socket.on('disconnect',message=>{
+    //     socket.broadcast.emit('left',users[socket.id]);
+    //     delete users[socket.id];
+    // });
 
 })
